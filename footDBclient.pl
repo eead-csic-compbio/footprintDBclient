@@ -9,7 +9,7 @@ use warnings;
 use Getopt::Std; 
 use SOAP::Lite;
 
-my $WAIT = 20; # wait time between jobs
+my $WAIT = 30; # wait time between jobs, please do not reduce 
 my $KWTYPE = 'all';
 
 my %opts;
