@@ -1,0 +1,16 @@
+os: linux
+dist: bionic
+language: perl
+perl:
+  - "5.26"
+
+before_install:
+  - "sudo apt-get update"
+  - "cpanm --sudo -v --installdeps --notest --cpanfile cpanfile ."
+
+script:
+  - "make test"
+
+notifications:
+  email:
+    on_failure: always
