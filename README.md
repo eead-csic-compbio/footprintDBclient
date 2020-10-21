@@ -6,9 +6,9 @@ It has been described at:
 
 The script [footDBclient.pl](./footDBclient.pl) is for users that wish to query footprintDB from the command-line through the Web Services interface. This was first described at our [blog](https://bioinfoperl.blogspot.pt/2017/10/soap-interface-of-footprintdb.html)
 
-# Dependencies 
+## Dependencies 
 
-It uses Perl module SOAP::Lite, at https://metacpan.org/pod/SOAP::Lite, which can be 
+It uses Perl5 module SOAP::Lite, at https://metacpan.org/pod/SOAP::Lite, which can be 
 installed with 
 
 	sudo cpan -i SOAP::Lite
