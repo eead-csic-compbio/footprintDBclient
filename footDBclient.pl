@@ -1,15 +1,11 @@
 #!/usr/bin/env perl
 
 # This script allows you to query http://floresta.eead.csic.es/footprintdb
-# from the command-line. It uses Perl module SOAP::Lite, which you'll find at 
-# https://metacpan.org/pod/release/PHRED/SOAP-Lite-1.27/lib/SOAP/Lite.pm
-# and install with $ sudo cpan -i SOAP::Lite
+# from the command-line. It uses Perl module SOAP::Lite, which can be 
+# installed with $ sudo cpan -i SOAP::Lite
 
 # Note: please space your queries if you plan to submit several jobs, 
-# such as 1 every $WAIT s
-
-# Read more at
-# https://bioinfoperl.blogspot.pt/2017/10/soap-interface-of-footprintdb.html
+# such as 1 every $WAIT seconds
 
 use strict;
 use warnings;
