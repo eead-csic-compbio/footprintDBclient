@@ -10,7 +10,6 @@ use Getopt::Std;
 use SOAP::Lite;
 
 my $WAIT = 30; # wait time between jobs, please do not reduce 
-my $KWTYPE = 'all';
 
 my %opts;
 my ($username,$input,$server) = ('','');
@@ -23,7 +22,7 @@ if(($opts{'h'})||(scalar(keys(%opts))==0))
 	print "-h this message\n";
 	print "-m motif file in TRANSFAC format, example: -m matrix.tf\n";
 	print "-p peptide sequence in FASTA format, example: -p sequence.faa\n";
-	print "-k keyword for text query, example: -k myb\n";
+	print "-k keyword for text query of sites, example: -k myb\n";
 	print "-u registered footprintDB username, optional\n\n";
 	exit(-1);
 } 
@@ -113,9 +112,8 @@ elsif(defined($opts{'m'})){
 elsif(defined($opts{'k'})){
 
 	$keyword = $opts{'k'};
-	$datatype = $KWTYPE;
 
-	$result = $server->text_query($keyword,$datatype,$username);
+	$result = $server->text_query($keyword,'site',$username);
 	unless($result->fault()){
 		print $result->result();
 	} else {
