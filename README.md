@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.com/eead-csic-compbio/footprintDBclient.svg?branch=main)](https://travis-ci.com/eead-csic-compbio/footprintDBclient)
+
 The database footprintDB has a Web interface at http://floresta.eead.csic.es/footprintdb
 
 It has been described at:
