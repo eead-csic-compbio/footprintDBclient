@@ -4,15 +4,13 @@
 # from the command-line. It uses Perl module SOAP::Lite, which can be 
 # installed with $ sudo cpan -i SOAP::Lite
 
-# Note: please space your queries if you plan to submit several jobs, 
-# such as 1 every $WAIT seconds
-
 use strict;
 use warnings;
 use Getopt::Std; 
 use SOAP::Lite;
 
-my $WAIT = 10;
+my $WAIT = 20; # wait time between jobs
+my $KWTYPE = 'all';
 
 my %opts;
 my ($username,$input,$server) = ('','');
@@ -27,7 +25,7 @@ if(($opts{'h'})||(scalar(keys(%opts))==0))
 	print "-p peptide sequence in FASTA format, example: -p sequence.faa\n";
 	print "-k keyword for text query, example: -k myb\n";
 	print "-u registered footprintDB username, optional\n\n";
-	exit(0);
+	exit(-1);
 } 
 
 if(!defined($opts{'m'}) && !defined($opts{'p'}) && !defined($opts{'k'})){ 
@@ -46,7 +44,7 @@ if(defined($opts{'u'})){ $username = $opts{'u'} }
 
 my ($result,$sequence,$name,$datatype,$keyword) = ('','','','','');
 
-if(defined($opts{'p'}){
+if(defined($opts{'p'})){
 
 	# read input FASTA file
 	my (%fasta,@names);
@@ -62,6 +60,7 @@ if(defined($opts{'p'}){
 			$sequence = $_;
 			$fasta{$name} .= $sequence;
 		}
+	}
 	close(FASTA);
 
 	# process sequences, one at a time, waiting in between
@@ -72,12 +71,14 @@ if(defined($opts{'p'}){
 		
 		unless($result->fault()){
 			print $result->result(); 
-		}else{
+		} else {
 			print '# ERROR: ' . join(', ',$result->faultcode(),$result->faultstring());
 		}
+
+		sleep($WAIT);
 	}
 }
-elsif(defined($opts{'m'}){
+elsif(defined($opts{'m'})){
 
 	# read motif file
 	my (%transfac,@names);
@@ -91,36 +92,35 @@ elsif(defined($opts{'m'}){
 		else {
 			chomp;
 			$sequence = $_;
-																		         $fasta{$name} .= $sequence;
-																					      }
-
+			$transfac{$name} .= $sequence;
+		}
 	}
 	close(TF);
 
-$sequence= <<EOM;
-DE 1a0a_AB
-01 1 93 0 2
-02 0 96 0 0
-03 58 33 3 2
-04 8 78 6 4
-05 8 5 75 8
-06 1 2 47 46
-07 1 2 84 9
-XX
-EOM
+	# process motifs, one at a time, waiting in between
+	foreach $name (@names){
 
-$result = $server->DNA_motif_query($sequence_name,$sequence,$username);
-unless($result->fault()){
-	print $result->result();
-}else{
-	print 'error: ' . join(', ',$result->faultcode(),$result->faultstring());
-} 
+		$result = $server->DNA_motif_query($name,$sequence,$username);
+		unless($result->fault()){
+			print $result->result();
+		} else {
+			print '# ERROR: ' . join(', ',$result->faultcode(),$result->faultstring());
+		}
 
-$keyword = "myb";
-$datatype = "site";
-$result = $server->text_query($keyword,$datatype,$username);
-unless($result->fault()){
-	print $result->result();
-}else{
-	print 'error: ' . join(', ',$result->faultcode(),$result->faultstring());
+		sleep($WAIT);
+	}
 }
+elsif(defined($opts{'k'})){
+
+	$keyword = $opts{'k'};
+	$datatype = $KWTYPE;
+
+	$result = $server->text_query($keyword,$datatype,$username);
+	unless($result->fault()){
+		print $result->result();
+	} else {
+		print 'error: ' . join(', ',$result->faultcode(),$result->faultstring());
+	}
+}
+
+exit(0);
