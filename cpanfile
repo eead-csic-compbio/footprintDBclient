@@ -1,1 +1,1 @@
-requires 'SOAP::Lite'
+requires 'SOAP::Lite';
