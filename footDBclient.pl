@@ -3,6 +3,7 @@
 # This script allows you to query http://floresta.eead.csic.es/footprintdb
 # from the command-line. It uses Perl module SOAP::Lite, which can be 
 # installed with $ sudo cpan -i SOAP::Lite
+# Bruno Contreras-Moreira, Alvaro Sebastian EEAD-CSIC 2020
 
 use strict;
 use warnings;
