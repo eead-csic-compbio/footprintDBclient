@@ -1,5 +1,4 @@
-
-[![Build Status](https://travis-ci.com/eead-csic-compbio/footprintDBclient.svg?branch=main)](https://travis-ci.com/eead-csic-compbio/footprintDBclient)
+## [This API was deprecated on March 2023]
 
 FootprintDB (http://floresta.eead.csic.es/footprintdb) is a database of regulatory sequences from open access libraries of curated DNA cis-elements and motifs, and their associated transcription factors (TFs). 
 
