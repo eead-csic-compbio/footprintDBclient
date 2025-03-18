@@ -1,7 +1,8 @@
 ## [This API was deprecated on March 2023]
 
 The footprintDB server moved to https://footprintdb.eead.csic.es from its old server https://floresta.eead.csic.es/footprintdb.
-During that process we decided to deprecate the SOAP Web Services interface.
+During that process we decided to deprecate the SOAP Web Services interface. Note that **you can still submit** your queries manually to 
+https://footprintdb.eead.csic.es.
 
 ## Legacy content
 
