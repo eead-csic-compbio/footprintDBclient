@@ -1,7 +1,7 @@
 
 ## footprintDB REST API
 
-FootprintDB (https://footprintdb.eead.csic.es) is a database of curated regulatory sequences and their associated transcription factors (TFs).
+[footprintDB](https://footprintdb.eead.csic.es) is a database of curated regulatory sequences and their associated transcription factors (TFs).
 It systematically annotates the binding interfaces of the TFs, the key residues responsible for specific binding, by exploiting protein-DNA 
 complexes at the [Protein Data Bank](https://www.rcsb.org).
 
@@ -9,8 +9,9 @@ Each entry in footprintDB is thus a DNA motif linked to the protein sequence of 
 the set of predicted interface residues. It has been described at:
 
 * [1] https://doi.org/10.1093/bioinformatics/btt663
-* [2] https://link.springer.com/protocol/10.1007%2F978-1-4939-6396-6_17
-* [3] https://link.springer.com/chapter/10.1007/978-3-642-28062-7_8
+* [2] https://doi.org/10.1186/1471-2164-15-317
+* [3] https://link.springer.com/protocol/10.1007%2F978-1-4939-6396-6_17
+* [4] https://link.springer.com/chapter/10.1007/978-3-642-28062-7_8
 
 The footprintDB database is also intergrated with [RSAT](rsat.eu), please see https://github.com/rsa-tools/motif_databases
 
@@ -27,7 +28,8 @@ To query the API you need [curl](https://curl.se) and one or more protein sequen
 
     curl -X POST -H "Content-Type: application/json" -d '{"q1":"MVAKVKRDGEVLVAAATGDSEEQDDLVLPGFRFHPTDEELVTFYLRRKVARKPLSMEIIKEMDIYKHDPWDLPKASTVGGEKEWYFFCLRGRKYRNSIRPNRVTGSGFWKATGIDRPIYPAAAGESVGLKKSLVYYRGSAGKGAKTDWMMHEFRLPPAASSPSTQEAVEVWTICRIFKRNIAYKKRQPAGSNAPPPPLAESSSNTGSFESGGGGDDGEYMNCLPVPVPATAAVVPRQQHRIGSMLNGGGVTASGSSFFREVGVHGQQFQGHWLNRFAAPEIERKPQLLGSSAMTIAFHQNDQTAATNECYKDGHWDEIARFMEVNDPTVLYDCRYA","q2":"IYNLSRRFAQRGFSPREFRLTMTRGDIGNYLGLTVETISRLLGRFQKSGMLAVKGKYITIEN"}' http://footprintdb.eead.csic.es:8080/protein
 
-This will produce text output in TRANSFAC format with predicted DNA motifs for each input sequence, with links to the actual entries in the database:
+This will produce text output in TRANSFAC format with predicted DNA motifs for each input sequence, with links to the actual entries in the database. 
+The key quality indicators are BLASTP e-value and interface identity and similarity, read more at [1-2]:
 
     AC  protein_query:q1 match:1
     XX
