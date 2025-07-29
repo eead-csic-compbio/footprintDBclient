@@ -7,7 +7,7 @@ use Mojolicious::Lite;
 # Returns text with predicted motifs in TRANSFAC format.
 #
 # Launch:
-# ./rest_server.pl daemon --listen http://161.111.227.27:8080
+# ./rest_server.pl daemon --listen IP:PORT
 # Client query:
 # curl -X POST -H "Content-Type: application/json" -d '{"q1":"MVAKVK..","q2":"IYNLSRR.."}' http://footprintdb.eead.csic.es:8080/protein
 
