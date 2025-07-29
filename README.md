@@ -110,3 +110,9 @@ The key quality indicators are BLASTP e-value and interface identity and similar
 ## Deprecated SOAP API
 
 On March 2023 the original SOAP Web Services interface was deprecated, you can still check the relevant files at [old.SOAP](./old.SOAP).
+
+## Funding 
+
+Citation: Sebastian A, Contreras-Moreira B (2014) footprintDB: a database of transcription factors with annotated cis elements and binding interfaces. Bioinformatics 30, 258-65. https://doi.org/10.1093/bioinformatics/btt663
+
+Funding: ARAID, CSIC [2020AEP119, FAS2022_052, INFRA24018] and the 2008 Euro Research Program [EUI2008-03612].
