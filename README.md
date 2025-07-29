@@ -7,9 +7,10 @@ complexes at the [Protein Data Bank](https://www.rcsb.org).
 
 Each entry in footprintDB is thus a DNA motif linked to the protein sequence of the TF(s) known to recognize it, and in most cases, 
 the set of predicted interface residues. It has been described at:
-* https://doi.org/10.1093/bioinformatics/btt663
-* https://link.springer.com/protocol/10.1007%2F978-1-4939-6396-6_17
-* https://link.springer.com/chapter/10.1007/978-3-642-28062-7_8
+
+* [1] https://doi.org/10.1093/bioinformatics/btt663
+* [2] https://link.springer.com/protocol/10.1007%2F978-1-4939-6396-6_17
+* [3] https://link.springer.com/chapter/10.1007/978-3-642-28062-7_8
 
 The footprintDB database is also intergrated with [RSAT](rsat.eu), please see https://github.com/rsa-tools/motif_databases
 
@@ -26,7 +27,7 @@ To query the API you need [curl](https://curl.se) and one or more protein sequen
 
     curl -X POST -H "Content-Type: application/json" -d '{"q1":"MVAKVKRDGEVLVAAATGDSEEQDDLVLPGFRFHPTDEELVTFYLRRKVARKPLSMEIIKEMDIYKHDPWDLPKASTVGGEKEWYFFCLRGRKYRNSIRPNRVTGSGFWKATGIDRPIYPAAAGESVGLKKSLVYYRGSAGKGAKTDWMMHEFRLPPAASSPSTQEAVEVWTICRIFKRNIAYKKRQPAGSNAPPPPLAESSSNTGSFESGGGGDDGEYMNCLPVPVPATAAVVPRQQHRIGSMLNGGGVTASGSSFFREVGVHGQQFQGHWLNRFAAPEIERKPQLLGSSAMTIAFHQNDQTAATNECYKDGHWDEIARFMEVNDPTVLYDCRYA","q2":"IYNLSRRFAQRGFSPREFRLTMTRGDIGNYLGLTVETISRLLGRFQKSGMLAVKGKYITIEN"}' http://footprintdb.eead.csic.es:8080/protein
 
-This will produce text output in TRANSFAC format, with max 5 matches for each input sequence:
+This will produce text output in TRANSFAC format with predicted DNA motifs for each input sequence, with links to the actual entries in the database:
 
     AC  protein_query:q1 match:1
     XX
@@ -62,6 +63,9 @@ This will produce text output in TRANSFAC format, with max 5 matches for each in
     LN  https://footprintdb.eead.csic.es/index.php?tf=21873
     XX
     //
+    
+    ...
+
     AC  protein_query:q2 match:1
     XX
     ID  q2|ECK120004795|RegulonDB 7.5
