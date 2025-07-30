@@ -55,6 +55,8 @@ post '/protein' => sub {
   }
   close($tmpfh);
 
+  app->log->info("REST prot job with $n_seqs valid sequences");
+
   # scan input sequences and parse contents of TRANSFAC file as main output
   open(AASEARCH,"$AASEARCHEXE -i $tmpfilename |") || 
     $c->render(text => "# ERROR: protein search failed\n");
