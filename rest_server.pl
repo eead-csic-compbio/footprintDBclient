@@ -14,7 +14,7 @@ use Mojolicious::Lite;
 # July2025 B Contreras EEAD-CSIC
 
 my $MAXSEQS = 1000;
-my $AASEARCHEXE = 'bin/search_footprintdb.pl -b -be 1E-10 -l 5';
+my $AASEARCHEXE = 'bin/search_footprintdb.pl -b -be 1E-3 -l 5';
 
 ## test, example of route to handle GET request
 get '/test' => sub {
