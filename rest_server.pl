@@ -69,7 +69,7 @@ post '/protein' => sub {
       $outf2 = $1
 
     } elsif(/# BlastP results saved in '([^']+)', '([^']+)', '([^']+)'/) {
-      ($outf3,$outf4,$outf5) = ($1,$2,$3);	    
+      ($outf3,$outf4,$outf5) = ($1,$2,$3); 
       open(TRANSFAC,"<",$outf5) ||
         $c->render(text => "# ERROR: cannot read TRANSFAC file $outf5\n");
       while(<TRANSFAC>) {
